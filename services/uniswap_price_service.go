@@ -6,6 +6,8 @@ import (
 	"net/http"
 	"time"
 
+	log "github.com/labstack/gommon/log"
+
 	"github.com/soumik1987/asset_price/helpers"
 	"github.com/soumik1987/asset_price/models"
 	"github.com/soumik1987/asset_price/requests"
@@ -72,6 +74,6 @@ func (p *PriceService) FetchSpotPrices(tokenAddress string) ([]*response.Price, 
 	for _, entry := range priceData.Data.TokenDayDatas {
 		results = append(results, response.NewPrice(time.Unix(entry.Date, 0).Format("2006-01-02"), entry.PriceUSD))
 	}
-	fmt.Println("Success")
+	log.Info("APi response completed")
 	return results, nil
 }

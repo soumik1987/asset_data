@@ -93,3 +93,5 @@ Only a sample test case is added. We need to add more test cases to cocer all th
 3. move urls to env file
 4. Handle more errors and wrap it up with error messages
 5. "date_data" has to be changed to "timestamp"
+6. Extensive logging has to be added. Need to create a custom logger
+7. caching to be implemneted to enhance performance

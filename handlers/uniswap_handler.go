@@ -5,6 +5,8 @@ import (
 
 	echo "github.com/labstack/echo/v4"
 
+	log "github.com/labstack/gommon/log"
+
 	"github.com/soumik1987/asset_price/helpers"
 	"github.com/soumik1987/asset_price/requests"
 	"github.com/soumik1987/asset_price/services"
@@ -39,6 +41,7 @@ func (p *PriceHandler) GetPrice(ctx echo.Context) error {
 	// Other errors also should be handled
 	switch {
 	case err != nil:
+		log.Errorf("API returning Error", err)
 		return ctx.JSON(http.StatusInternalServerError, map[string]string{"message": "Server Error"})
 
 	default:
