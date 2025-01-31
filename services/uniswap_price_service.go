@@ -58,7 +58,6 @@ func (p *PriceService) FetchSpotPrices(tokenAddress string) ([]*response.Price, 
 	}
 
 	url := fmt.Sprintf(uniswapAPI, p.apiKey)
-	fmt.Println(url, query)
 	resp, err := helpers.ProcessRequest(query, p.client, url)
 	if err != nil {
 		return nil, err
