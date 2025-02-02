@@ -14,9 +14,10 @@ type HTTPConfig struct {
 }
 
 // Config is an extensible config data. any further config variable should go into it
+// Multiple configs should be added separately for Uniswap/ Balancer/ Sushiswap etc
 type Config struct {
-	Http   *HTTPConfig
-	ApiKey string
+	Http        *HTTPConfig
+	GraphApiKey string
 }
 
 // Load config data at start up
@@ -28,10 +29,10 @@ func Load() *Config {
 	}
 	// any env data with SERVER_ must be processed
 	envconfig.MustProcess("SERVER", &httpConfig)
-	ApiKey := os.Getenv("ApiKey")
+	GraphApiKey := os.Getenv("GraphApiKey")
 
 	return &Config{
-		Http:   &httpConfig,
-		ApiKey: ApiKey,
+		Http:        &httpConfig,
+		GraphApiKey: GraphApiKey,
 	}
 }

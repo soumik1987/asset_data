@@ -1,14 +1,25 @@
 package models
 
-type TokenDayDatas struct {
-	Date     int64  `json:"date"`
-	PriceUSD string `json:"priceUSD"`
+import (
+	h "github.com/soumik1987/asset_price/handlers"
+	"github.com/soumik1987/asset_price/response"
+)
+
+type IUniswapService interface {
+	FetchSpotPrices(tokenAddress string) ([]*response.Price, error)
 }
 
-type tokenData struct {
-	TokenDayDatas []TokenDayDatas `json:"tokenDayDatas"`
+type Uniswap struct {
+	uniswapService IUniswapService
 }
 
-type PriceData struct {
-	Data tokenData `json:"data"`
+func NewUniswap(u IUniswapService) h.IDefiProtocol {
+	return &Uniswap{
+		uniswapService: u,
+	}
+}
+
+func (u *Uniswap) FetchSpotPrices(tokenAddress string) ([]*response.Price, error) {
+
+	return u.uniswapService.FetchSpotPrices(tokenAddress)
 }

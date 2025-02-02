@@ -33,6 +33,6 @@ func (server *Server) Start() {
 	addr := fmt.Sprintf("%v:%v", server.Config.Http.Host, server.Config.Http.Port)
 	err := server.Echo.Start(addr)
 	if err != nil {
-		log.Errorf("web-api server failed to start, Echo.start error: %v", err)
+		log.Errorf("web server failed to start, Echo.start error: %v", err)
 	}
 }

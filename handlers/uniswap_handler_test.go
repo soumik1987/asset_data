@@ -30,8 +30,8 @@ func TestPriceHandler_GetPrice(t *testing.T) {
 	// Create expected response
 	expectedPrices := []*response.Price{
 		{
-			Price:    "100.50",
-			Datedata: "2025-01-31T00:00:00Z",
+			Price:     "100.50",
+			Timestamp: "2025-01-31T00:00:00Z",
 		},
 	}
 
@@ -42,7 +42,7 @@ func TestPriceHandler_GetPrice(t *testing.T) {
 		Times(1)
 
 	// Initialize handler with mock service
-	handler := handlers.NewPriceHandler(mockPriceService)
+	handler := handlers.NewUniswapHandler(mockPriceService)
 
 	err := handler.GetPrice(c)
 

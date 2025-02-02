@@ -18,6 +18,6 @@ WORKDIR /root/
 
 # Copy the binary from the builder stage
 COPY --from=builder /app/asset_price .
-COPY abi.json .env .
+COPY .env .
 
 CMD ["./asset_price"]
