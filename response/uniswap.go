@@ -15,12 +15,12 @@ type PriceData struct {
 
 type Price struct {
 	Timestamp string `json:"timestamp"`
-	Price    string `json:"price"`
+	Price     string `json:"price"`
 }
 
 func NewPrice(timestamp string, price string) *Price {
 	return &Price{
 		Timestamp: timestamp,
-		Price:    price,
+		Price:     price,
 	}
 }

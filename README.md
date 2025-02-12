@@ -1,8 +1,5 @@
 # Query 30 spot prices from the last 30 days from Uniswap V3 then serve it.
-1. We need to get the data from subgraph query
-2. We need to expose a server api.
-3. Token address is an input param 
-5. Spot prices for 30 days are given at 24hrs avg 
+
 
 ## Overview
 
@@ -15,7 +12,7 @@ We need to explore the  ListTokenDayDatas method
 token_address is passed a query param. So that we can add multiple other filters if needed. 
 
 This service fetches data for only uniswap. Other dex data can be added as well.
-to do that. need to create a separate file in the services dir has to be added.
+We create a separate file in the services dir.
 If we need to fetch any other data from Uniswap, we can extend the current file.
 
 ** The ApiKey shall come from the secrets file.
@@ -28,7 +25,7 @@ http://localhost:8080/v1/asset/price?token_address=0x1f9840a85d5af5bf1d1762f925b
 
 [
   {
-    "date_data": "2025-01-31",
+    "timestamp": "2025-01-31",
     "price": "11.90015453681757445081985125684267"
   },.....
 ]
@@ -91,8 +88,6 @@ Only a sample test case is added. We need to add more test cases to cocer all th
 
 1. Add more test cases
 2. Add configs for env variables
-3. move urls to env file
-4. Handle more errors and wrap it up with error messages
-5. "date_data" has to be changed to "timestamp"
-6. Extensive logging has to be added. Need to create a custom logger
-7. caching to be implemneted to enhance performance
+3. Handle more errors and wrap it up with error messages
+4. Extensive logging has to be added. Need to create a custom logger
+
